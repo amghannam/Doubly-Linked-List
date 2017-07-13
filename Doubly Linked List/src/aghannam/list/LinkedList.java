@@ -407,7 +407,7 @@ public class LinkedList<T> {
 	 * 
 	 * @param index
 	 *            the zero-based location of the desired node in this list
-	 * @return the value of the node at the specified location
+	 * @return the value of the node at the specified index or location
 	 */
 	public T getAt(int index) {
 		if (!isEmpty()) {
