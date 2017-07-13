@@ -554,7 +554,7 @@ public class LinkedList<T> {
 	}
 
 	/**
-	 * Returns a string representation of the list.
+	 * Returns a string representation of the list and its nodes. 
 	 * 
 	 * @return a string representation of the current list
 	 */
