@@ -571,6 +571,6 @@ public class LinkedList<T> {
 			list.append(curr.val).append("]");
 			return list.toString();
 		}
-		return null;
+		return "[]";
 	}
 }
