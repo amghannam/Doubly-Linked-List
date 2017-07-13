@@ -251,7 +251,7 @@ public class LinkedList<T> {
 	}
 
 	/**
-	 * Removes all occurrences of the nodes containing the specified value from
+	 * Removes all occurrences of the node containing the specified value from
 	 * the list.
 	 * 
 	 * @param val
