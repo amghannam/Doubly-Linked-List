@@ -431,8 +431,8 @@ public class LinkedList<T> {
 	 * 
 	 * @param val
 	 *            the value to search for in this list
-	 * @return <code>true</code> if the list contains the target value,
-	 *         <code>false</code> otherwise
+	 * @return <code>true</code> if the list contains the a node with 
+	 *         the target value <code>false</code> otherwise
 	 */
 	public boolean contains(T val) {
 		if (!isEmpty()) {
