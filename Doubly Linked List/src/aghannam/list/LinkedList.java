@@ -39,7 +39,7 @@ public class LinkedList<T> {
 	 * Constructs a new doubly-linked list instance from the specified array.
 	 * 
 	 * @param a
-	 *            the array whose elements are to be added to the list
+	 *            the array whose elements are to be added to this list
 	 */
 	public LinkedList(T[] a) {
 		if (a.length > 0) {
