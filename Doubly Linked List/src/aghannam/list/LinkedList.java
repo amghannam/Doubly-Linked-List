@@ -302,9 +302,13 @@ public class LinkedList<T> {
 	public T removeLast() {
 		if (!isEmpty()) {
 			T removed = tail.val;
-			tail.prev.next = null;
-			tail = tail.prev;
-			size--;
+			if (tail.prev == null) {
+				removeFirst();
+			} else {
+				tail.prev.next = null;
+				tail = tail.prev;
+				size--; 
+			}
 			return removed;
 		}
 		return null;
