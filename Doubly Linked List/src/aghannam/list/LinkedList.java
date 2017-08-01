@@ -166,10 +166,10 @@ public class LinkedList<T> {
 	 * @return the value of the node removed
 	 */
 	public T removeBefore(T val) {
-		if (!isEmpty() && val != null) {
+		if (!isEmpty() && val != null && !head.val.equals(val)) {
 			if (head.next.val.equals(val)) {
 				return removeFirst();
-			}
+			} 
 			Node<T> curr = head;
 			while (!curr.val.equals(val)) {
 				curr = curr.next;
