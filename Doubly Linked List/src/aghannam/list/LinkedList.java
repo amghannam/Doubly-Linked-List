@@ -97,6 +97,7 @@ public class LinkedList<T> {
 				curr.prev.next = newNode;
 				newNode.prev = curr.prev;
 				newNode.next = curr;
+				curr.prev = newNode;
 				size++;
 			}
 		}
@@ -149,8 +150,8 @@ public class LinkedList<T> {
 				Node<T> newNode = new Node<>(val);
 				curr.next.prev = newNode;
 				newNode.next = curr.next;
-				curr.next = newNode;
 				newNode.prev = curr;
+				curr.next = newNode;
 				size++;
 			}
 		}
