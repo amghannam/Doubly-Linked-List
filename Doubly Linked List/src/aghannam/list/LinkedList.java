@@ -83,11 +83,11 @@ public class LinkedList<T> {
 	 */
 	public void insertBefore(T before, T val) {
 		if (!isEmpty() && before != null && val != null) {
-			if (head.val == before) {
+			if (head.val.equals(before)) {
 				insertFirst(val);
 			} else {
 				Node<T> curr = head;
-				while (curr.val != before) {
+				while (!curr.val.equals(before)) {
 					curr = curr.next;
 					if (curr == null) {
 						return;
@@ -137,7 +137,7 @@ public class LinkedList<T> {
 	public void insertAfter(T after, T val) {
 		if (!isEmpty() && after != null && val != null) {
 			Node<T> curr = head;
-			while (curr.val != after) {
+			while (!curr.val.equals(after)) {
 				curr = curr.next;
 				if (curr == null) {
 					return;
@@ -167,11 +167,11 @@ public class LinkedList<T> {
 	 */
 	public T removeBefore(T val) {
 		if (!isEmpty() && val != null) {
-			if (head.next.val == val) {
+			if (head.next.val.equals(val)) {
 				return removeFirst();
 			}
 			Node<T> curr = head;
-			while (curr.val != val) {
+			while (!curr.val.equals(val)) {
 				curr = curr.next;
 				if (curr == null) {
 					return null;
@@ -197,11 +197,11 @@ public class LinkedList<T> {
 	 */
 	public T remove(T val) {
 		if (!isEmpty() && val != null) {
-			if (head.val == val) {
+			if (head.val.equals(val)) {
 				return removeFirst();
 			}
 			Node<T> curr = head;
-			while (curr.val != val) {
+			while (!curr.val.equals(val)) {
 				curr = curr.next;
 				if (curr == null) {
 					return null;
@@ -232,7 +232,7 @@ public class LinkedList<T> {
 	public T removeAfter(T val) {
 		if (!isEmpty() && val != null) {
 			Node<T> curr = head;
-			while (curr.val != val) {
+			while (!curr.val.equals(val)) {
 				curr = curr.next;
 				if (curr == tail || curr == null) {
 					return null;
@@ -261,7 +261,7 @@ public class LinkedList<T> {
 		if (!isEmpty() && val != null) {
 			Node<T> curr = head;
 			while (curr != null) {
-				if (curr.val == val) {
+				if (curr.val.equals(val)) {
 					if (curr == head) {
 						removeFirst();
 					} else if (curr == tail) {
@@ -324,11 +324,11 @@ public class LinkedList<T> {
 	 */
 	public T getBefore(T val) {
 		if (!isEmpty() && val != null) {
-			if (head.next.val == val) {
+			if (head.next.val.equals(val)) {
 				return getFirst();
 			}
 			Node<T> curr = head.next;
-			while (curr.val != val) {
+			while (!curr.val.equals(val)) {
 				curr = curr.next;
 				if (curr == null) {
 					return null;
@@ -360,11 +360,11 @@ public class LinkedList<T> {
 	 */
 	public T getAfter(T val) {
 		if (!isEmpty() && val != null) {
-			if (head.val == val) {
+			if (head.val.equals(val)) {
 				return head.next.val;
 			}
 			Node<T> curr = head;
-			while (curr.val != val) {
+			while (!curr.val.equals(val)) {
 				curr = curr.next;
 				if (curr == null) {
 					return null;
@@ -439,12 +439,12 @@ public class LinkedList<T> {
 	 */
 	public boolean contains(T val) {
 		if (!isEmpty()) {
-			if (head.val == val || tail.val == val) {
+			if (head.val.equals(val) || tail.val.equals(val)) {
 				return true;
 			}
 			Node<T> curr = head.next;
 			while (curr != null) {
-				if (curr.val == val) {
+				if (curr.val.equals(val)) {
 					return true;
 				}
 				curr = curr.next;
@@ -465,14 +465,14 @@ public class LinkedList<T> {
 	 */
 	public void replace(T target, T replacement) {
 		if (!isEmpty() && target != null && replacement != null) {
-			if (head.val == target) {
+			if (head.val.equals(target)) {
 				head.val = replacement;
-			} else if (tail.val == target) {
+			} else if (tail.val.equals(target)) {
 				tail.val = replacement;
 			} else {
 				Node<T> curr = head.next;
 				while (curr != null) {
-					if (curr.val == target) {
+					if (curr.val.equals(target)) {
 						curr.val = replacement;
 						return;
 					}
@@ -495,7 +495,7 @@ public class LinkedList<T> {
 		if (!isEmpty() && target != null && replacement != null) {
 			Node<T> curr = head;
 			while (curr != null) {
-				if (curr.val == target) {
+				if (curr.val.equals(target)) {
 					curr.val = replacement;
 				}
 				curr = curr.next;
