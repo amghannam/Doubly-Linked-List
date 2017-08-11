@@ -39,8 +39,8 @@ public class LinkedListTest {
 	 * Test method for {@link aghannam.list.LinkedList#insert(java.lang.Object)}.
 	 */
 	@Test
-	public void testInsertLast() {
-		// insertLast() is already used by the constructor. 
+	public void testInsert() {
+		// insert() is already used by the constructor. 
 		assertFalse(list.isEmpty());
 		assertEquals(10, list.size()); 
 		assertArrayEquals(toArray(list), data); 
