@@ -36,7 +36,7 @@ public class LinkedListTest {
 	}
 
 	/**
-	 * Test method for {@link aghannam.list.LinkedList#insertLast(java.lang.Object)}.
+	 * Test method for {@link aghannam.list.LinkedList#insert(java.lang.Object)}.
 	 */
 	@Test
 	public void testInsertLast() {
@@ -176,7 +176,7 @@ public class LinkedListTest {
 		assertTrue(list.size() == 8); 
 		assertEquals(Integer.valueOf(8), list.removeLast());
 		assertTrue(list.size() == 7); 
-		list.insertLast(55);
+		list.insert(55);
 		assertEquals(Integer.valueOf(55), list.removeLast());
 		assertEquals(Integer.valueOf(7), list.getLast());
 	}
@@ -226,7 +226,7 @@ public class LinkedListTest {
 	@Test
 	public void testGetLast() {
 		assertEquals(Integer.valueOf(10), list.getLast()); 
-		list.insertLast(11);
+		list.insert(11);
 		assertEquals(Integer.valueOf(11), list.getLast()); 
 		assertTrue(list.size() == 11); 
 		list.removeLast();
@@ -251,7 +251,7 @@ public class LinkedListTest {
 		assertTrue(list.contains(1));
 		assertTrue(list.contains(5));
 		assertFalse(list.contains(11));
-		list.insertLast(11);
+		list.insert(11);
 		assertTrue(list.contains(11)); 
 		assertFalse(list.contains(0));
 		list.insertFirst(0);
@@ -283,7 +283,7 @@ public class LinkedListTest {
 	public void testReplaceAll() {
 		list.insertFirst(0);
 		list.insertAfter(5,0);
-		list.insertLast(0);
+		list.insert(0);
 		assertTrue(list.contains(0));
 		assertTrue(list.size() == 13);
 		list.replaceAll(0, 100);

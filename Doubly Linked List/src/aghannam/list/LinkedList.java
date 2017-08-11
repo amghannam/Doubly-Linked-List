@@ -44,7 +44,7 @@ public class LinkedList<T> {
 	public LinkedList(T[] a) {
 		if (a.length > 0) {
 			for (int i = 0; i < a.length; i++) {
-				insertLast(a[i]);
+				insert(a[i]);
 			}
 		}
 	}
@@ -55,7 +55,7 @@ public class LinkedList<T> {
 	 * @param val
 	 *            the value of the node to be added to this list
 	 */
-	public void insertLast(T val) {
+	public void insert(T val) {
 		if (val != null) {
 			Node<T> newNode = new Node<>(val);
 			if (isEmpty()) {
@@ -145,7 +145,7 @@ public class LinkedList<T> {
 				}
 			}
 			if (curr == tail) {
-				insertLast(val);
+				insert(val);
 			} else {
 				Node<T> newNode = new Node<>(val);
 				curr.next.prev = newNode;
