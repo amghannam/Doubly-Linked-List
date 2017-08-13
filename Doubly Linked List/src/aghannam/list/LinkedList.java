@@ -158,36 +158,6 @@ public class LinkedList<T> {
 	}
 
 	/**
-	 * Removes the node that immediately precedes the first occurrence of the
-	 * node with the specified value and returns its value. If the list is
-	 * empty, this method returns <code>null</code>.
-	 * 
-	 * @param val
-	 *            the value of the node before which to remove a node
-	 * @return the value of the node removed
-	 */
-	public T removeBefore(T val) {
-		if (!isEmpty() && val != null && !head.val.equals(val)) {
-			if (head.next.val.equals(val)) {
-				return removeFirst();
-			} 
-			Node<T> curr = head;
-			while (!curr.val.equals(val)) {
-				curr = curr.next;
-				if (curr == null) {
-					return null;
-				}
-			}
-			T removed = curr.prev.val;
-			curr.prev = curr.prev.prev;
-			curr.prev.next = curr;
-			size--;
-			return removed;
-		}
-		return null;
-	}
-
-	/**
 	 * Removes the first occurrence of the node containing the specified value
 	 * and returns its value. If the list is empty, this method returns
 	 * <code>null</code>.
@@ -221,37 +191,6 @@ public class LinkedList<T> {
 	}
 
 	/**
-	 * Removes the node that immediately follows the first occurrence of the
-	 * node with the specified value. If the list is empty, this method returns
-	 * <code>
-	 * null</code>.
-	 * 
-	 * @param val
-	 *            the value of the node after which to remove a node
-	 * @return the value of the node removed
-	 */
-	public T removeAfter(T val) {
-		if (!isEmpty() && val != null) {
-			Node<T> curr = head;
-			while (!curr.val.equals(val)) {
-				curr = curr.next;
-				if (curr == tail || curr == null) {
-					return null;
-				}
-			}
-			if (curr.next == tail) {
-				return removeLast();
-			}
-			T removed = curr.next.val;
-			curr.next = curr.next.next;
-			curr.next.prev = curr;
-			size--;
-			return removed;
-		}
-		return null;
-	}
-
-	/**
 	 * Removes all occurrences of the node containing the specified value from
 	 * the list.
 	 * 
@@ -276,6 +215,35 @@ public class LinkedList<T> {
 				curr = curr.next;
 			}
 		}
+	}
+
+	/**
+	 * Removes the last occurrence of the node with the specified value.
+	 * @param val the value of the node to be removed
+	 * @return the value of the removed node
+	 */
+	public T removeLastOccurrence(T val) {
+		if (!isEmpty()) {
+			if (tail.val.equals(val)) {
+				return removeLast(); 
+			}
+			Node<T> curr = tail; 
+			while (!curr.val.equals(val)) {
+				curr = curr.prev; 
+				if (curr == null) 
+					return null; 
+			}
+			if (curr == head) {
+				return removeFirst();
+			} else {
+				T removed = curr.val;
+				curr.next.prev = curr.prev;
+				curr.prev.next = curr.next;
+				size--;
+				return removed; 
+			}
+		}
+		return null; 
 	}
 
 	/**
@@ -313,7 +281,7 @@ public class LinkedList<T> {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * Returns the value of the node preceding the first occurrence of the node
 	 * with the specified value. If no node with the specified value is found,
@@ -576,5 +544,35 @@ public class LinkedList<T> {
 			return list.toString();
 		}
 		return "[]";
+	}
+	
+	/**
+	 * Represents a doubly-linked list node.
+	 */
+	private static class Node<T> {
+		/**
+		 * The node following this node.
+		 */
+		Node<T> next;
+
+		/**
+		 * The node preceding this node.
+		 */
+		Node<T> prev;
+
+		/**
+		 * The value of this node.
+		 */
+		T val;
+
+		/**
+		 * Constructs a new list node containing the specified value.
+		 * 
+		 * @param value
+		 *            the value to associate to this node
+		 */
+		Node(T val) {
+			this.val = val;
+		}
 	}
 }

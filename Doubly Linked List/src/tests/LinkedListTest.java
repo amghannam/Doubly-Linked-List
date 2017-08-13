@@ -87,23 +87,7 @@ public class LinkedListTest {
 		assertTrue(list.size() == 12); 
 		assertEquals(Integer.valueOf(17), list.getAfter(15)); 
 	}
-
-	/**
-	 * Test method for {@link aghannam.list.LinkedList#removeBefore(java.lang.Object)}.
-	 */
-	@Test
-	public void testRemoveBefore() {
-		assertEquals(Integer.valueOf(4), list.getBefore(5));
-		list.removeBefore(5);
-		assertTrue(list.size() == 9); 
-		assertEquals(Integer.valueOf(3), list.getBefore(5));
-		list.removeBefore(3); 
-		assertTrue(list.size() == 8); 
-		assertEquals(Integer.valueOf(1), list.getBefore(3)); 
-		list.removeBefore(1); 
-		assertTrue(list.size() == 8); 
-	}
-
+	
 	/**
 	 * Test method for {@link aghannam.list.LinkedList#remove(java.lang.Object)}.
 	 */
@@ -114,22 +98,6 @@ public class LinkedListTest {
 		assertEquals(Integer.valueOf(7), list.remove(7));
 		assertTrue(list.size() == 8); 
 		list.remove(100);
-		assertTrue(list.size() == 8); 
-	}
-
-	/**
-	 * Test method for {@link aghannam.list.LinkedList#removeAfter(java.lang.Object)}.
-	 */
-	@Test
-	public void testRemoveAfter() {
-		assertEquals(Integer.valueOf(6), list.getAfter(5));
-		list.removeAfter(5);
-		assertTrue(list.size() == 9); 
-		assertEquals(Integer.valueOf(7), list.getAfter(5));
-		list.removeAfter(7); 
-		assertTrue(list.size() == 8); 
-		assertEquals(Integer.valueOf(9), list.getAfter(7)); 
-		list.removeAfter(10); 
 		assertTrue(list.size() == 8); 
 	}
 
@@ -179,6 +147,24 @@ public class LinkedListTest {
 		list.insert(55);
 		assertEquals(Integer.valueOf(55), list.removeLast());
 		assertEquals(Integer.valueOf(7), list.getLast());
+	}
+
+	/**
+	 * Test method for {@link aghannam.list.LinkedList#removeLastOccurrence(java.lang.Object)}.
+	 */
+	@Test
+	public void testRemoveLastOccurrence() {
+		list.replace(Integer.valueOf(6), 8); 
+		list.replace(Integer.valueOf(2), 7); 
+		assertEquals(Integer.valueOf(8), list.removeLastOccurrence(8));  
+		assertTrue(list.size() == 9);
+		assertEquals(Integer.valueOf(8), list.getAfter(5));
+		assertEquals(Integer.valueOf(7), list.getAfter(8));
+		assertEquals(Integer.valueOf(7), list.removeLastOccurrence(7)); 
+		assertEquals(Integer.valueOf(9), list.getAfter(8)); 
+		assertTrue(list.size() == 8);
+		list.removeLastOccurrence(10000);
+		assertTrue(list.size() == 8); 
 	}
 
 	/**
